@@ -30,7 +30,7 @@ export function FormPericias() {
 
     return(<>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="desname">Nome</label>
+            <label htmlFor="desname">Pericia</label>
             <input id="desname" name="desNome" type="text" value={formDes.desNome} onChange={handleChange}/>
 {/*             
             <label htmlFor="destreza">Destreza</label>
