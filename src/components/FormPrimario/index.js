@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+
 
 export function FormPrimario() {
     
@@ -18,9 +17,6 @@ export function FormPrimario() {
         atrCarisma:0,
         atrIntel:0,
         atrVontade:0,
-<<<<<<< HEAD
-    });        
-=======
         desTrunfo1:"",
         desTrunfo2:"",
         desTrunfo3:"",
@@ -51,7 +47,6 @@ export function FormPrimario() {
         atrAtivacoes:5,
         atrResistencia:1
     });
->>>>>>> ccf79f549de51b963dfb124b21a01564c1152baf
 
     function handleChange(evento) {
         setForm({...formPri, [evento.target.name]:evento.target.value});
@@ -65,29 +60,7 @@ export function FormPrimario() {
             console.log("parapar");
         }catch (err){
             console.log(err);
-        }
-
-        function handleToast() {
-            toast((t) => (
-                <span>
-                  Você realmente quer <b>deletar</b> essa ficha?
-                  <button onClick={() => {
-                    handleDlete(t)                    
-                  }}>Sim</button>
-                  <button onClick={() => toast.dismiss(t.id)}>Não</button>
-                </span>
-              ));
-        }
-        async function handleDlete(t) {
-            try{
-                await axios.delete(`https://ironrest.herokuapp.com/chrbuilder/${formPri}`, formPri);
-
-                toast.dismiss(t.id);
-                navigate("/");
-            }catch (err){
-                console.log(err);
-            }
-        }    
+        }        
     }
 
 
@@ -138,18 +111,8 @@ export function FormPrimario() {
         <div>
             <h2>Trunfos</h2>
             <label htmlFor="trunfo1">1</label>
-            <input id="trunfo1" name="desTrunfo1" type="text" value={formPri.desTrunfo1} onChange={handleChange}/>
-            
-<<<<<<< HEAD
-            <button type="submit">Send</button>
-            <Link to={`/edit/${}`}>
-             <button type="submit">Edit</button>
-             <button onClick={handleToast}>Delete</button>
-            </Link>
+            <input id="trunfo1" name="desTrunfo1" type="text" value={formPri.desTrunfo1} onChange={handleChange}/>         
 
-        </form>
-        
-=======
             <label htmlFor="trunfo2">2</label>
             <input id="trunfo2" name="desTrunfo2" type="text" value={formPri.desTrunfo2} onChange={handleChange}/>
 
@@ -232,13 +195,10 @@ export function FormPrimario() {
             <label htmlFor="resistencia">Resistência</label>
         </div>
 
-    <button type="submit">Send</button>
+        <button type="submit">Send</button>
 
     </form>
 
->>>>>>> ccf79f549de51b963dfb124b21a01564c1152baf
-    </>)
-
-
+</>)
 
 }

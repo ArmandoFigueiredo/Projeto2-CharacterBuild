@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 
 export function FormPericias() {
     
@@ -66,11 +66,7 @@ export function FormPericias() {
             
             </div>
 
-            <button type="submit">Send</button>
-            <Link to={`/edit/${}`}>
-             <button type="submit">Edit</button>
-            </Link>
-            <button type="submit">Delete</button>
+            <button type="submit">Send</button>            
         </form>
         
     </>)
