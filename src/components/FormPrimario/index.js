@@ -1,5 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
+import { Navigate } from "react-router-dom";
 
 export function FormPrimario() {
     
@@ -60,6 +62,28 @@ export function FormPrimario() {
         }catch (err){
             console.log(err);
         }
+
+        function handleToast() {
+            toast((t) => (
+                <span>
+                  Você realmente quer <b>deletar</b> essa ficha?
+                  <button onClick={() => {
+                    handleDlete(t)                    
+                  }}>Sim</button>
+                  <button onClick={() => toast.dismiss(t.id)}>Não</button>
+                </span>
+              ));
+        }
+        async function handleDlete(t) {
+            try{
+                await axios.delete(`https://ironrest.herokuapp.com/chrbuilder/${formPri}`, formPri);
+
+                toast.dismiss(t.id);
+                navigate("/");
+            }catch (err){
+                console.log(err);
+            }
+        }    
     }
 
 
@@ -110,8 +134,8 @@ export function FormPrimario() {
         <div>
             <h2>Trunfos</h2>
             <label htmlFor="trunfo1">1</label>
-            <input id="trunfo1" name="desTrunfo1" type="text" value={formPri.desTrunfo1} onChange={handleChange}/>
-            
+            <input id="trunfo1" name="desTrunfo1" type="text" value={formPri.desTrunfo1} onChange={handleChange}/>            
+
             <label htmlFor="trunfo2">2</label>
             <input id="trunfo2" name="desTrunfo2" type="text" value={formPri.desTrunfo2} onChange={handleChange}/>
 
@@ -197,7 +221,6 @@ export function FormPrimario() {
     <button type="submit">Send</button>
 
     </form>
-
     </>)
 
 
