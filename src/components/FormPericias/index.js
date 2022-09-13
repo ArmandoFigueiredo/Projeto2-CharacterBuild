@@ -37,9 +37,23 @@ export function FormPericias(props) {
         evento.preventDefault();
         console.log("adinam")
         try{
-            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilderPericias", currentPericia)
+            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilderPericias", form)
             console.log("burbuleos");
-        }catch (err){
+        
+            await axios.put(`https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.fichaId}`, { periciaId: resposta.data.insertedId }
+            );
+        
+        toast('Yahhaoooaoooa!',
+            {
+                icon: '🦴',
+                style: {
+                borderRadius: '10px',
+                background: '#333',
+                color: '#fff',
+                },
+            });
+        
+        } catch (err){
             console.log(err);
         }
     }

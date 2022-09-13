@@ -64,6 +64,7 @@ export function FormPrimario(props) {
 
         props.setFichaId(resposta.data.insertedId)
         console.log(resposta.data.insertedId)
+        props.setLiber(true);
         
         toast('Apapapa Aee!',
                 {
