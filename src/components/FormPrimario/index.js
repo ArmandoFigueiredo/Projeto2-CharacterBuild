@@ -12,6 +12,7 @@ export function FormPrimario(props) {
         desNarrador:"",
         desCampanha:"",
         desDescricao:"",
+        atrImagem:"",
         atrForca:0,
         atrDestreza:0,
         atrConst:0,
@@ -101,6 +102,9 @@ export function FormPrimario(props) {
                         
             <label htmlFor="descricao">Descrição</label>
             <input id="descricao" name="desDescricao" type="text" value={formPri.desDescricao} onChange={handleChange}/>
+
+            <label htmlFor="imagem">Imagem</label>
+            <input id="Imagem" name="atrImagem" type="text" value={formPri.atrImagem} onChange={handleChange}/>
         </div>
 
         <div>
