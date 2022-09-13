@@ -39,6 +39,12 @@ export function FormPrimario() {
         infInventario7:"",
         infInventario8:"",
         infInventario9:"",
+        atrDanoBasico:1,
+        atrIniciativa:1,
+        atrSorte:1,
+        atrVitalidade:5,
+        atrAtivacoes:5,
+        atrResistencia:1
     });
 
     function handleChange(evento) {
@@ -60,6 +66,7 @@ export function FormPrimario() {
     return(<>
     <form onSubmit={handleSubmit}>
         <div>
+            <h1>Fichita</h1>
             <label htmlFor="nome">Nome</label>
             <input id="nome" name="desNome" type="text" value={formPri.desNome} onChange={handleChange}/>
             
@@ -80,6 +87,7 @@ export function FormPrimario() {
         </div>
 
         <div>
+            <h2>Atributos</h2>
             <label htmlFor="forca">Força</label>
             <input id="forca" name="atrForca" type="number" value={formPri.atrForca} onChange={handleChange}/>
             
@@ -177,6 +185,14 @@ export function FormPrimario() {
             <input id="inventario9" name="infInventario9" type="text" value={formPri.infInventario9} onChange={handleChange}/>
         </div>
 
+        <div>
+            <label htmlFor="danobasico" value={formPri.atrDanoBasico}>Dano Básico</label>
+            <label htmlFor="iniciativa">Iniciativa</label>
+            <label htmlFor="sorte">Sorte</label>
+            <label htmlFor="vitalidade">Vitalidade</label>
+            <label htmlFor="ativacoes">Ativações</label>
+            <label htmlFor="resistencia">Resistência</label>
+        </div>
 
     <button type="submit">Send</button>
 
