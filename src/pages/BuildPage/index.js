@@ -1,14 +1,15 @@
 import { FormPrimario } from "../../components/FormPrimario"
+import { FormDescritivo } from "../../components/FormDescritivo"
 
 export function BuildPage() {
     return (<>
-            <div className="dadosPrimarios">
-                <h1>Nome</h1>
+            <div className="dadosDescritivo">
+                <FormDescritivo />
             </div>
-            <div className="dadosAtributos">
+            <div className="dadosPrimario">
                 <FormPrimario />
             </div>
-            <div className="dadosPerícias">
+            <div className="dadosPericias">
                 <h3>Forçar x0  </h3>
                 <p> Empurrarx0 </p>
             </div>
@@ -16,11 +17,11 @@ export function BuildPage() {
                 <h1>Trunfos</h1>
                 <h2>Sinas</h2>
             </div>
-            <div className="dadosSecundários">
+            <div className="dadosSecundarios">
                 <h1>Vitalidade</h1>
                 <h2>Dano Básico</h2>
             </div>
-            <div className="dadosInventário">
+            <div className="dadosInventario">
                 <h1>Slot Básico</h1>
                 <h2>1</h2>
             </div>

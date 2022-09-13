@@ -5,6 +5,11 @@ export function FormPrimario() {
     
     const [formPri, setForm] = useState ({
         atrForca:0,
+        atrDestreza:0,
+        atrConst:0,
+        atrCarisma:0,
+        atrIntel:0,
+        atrVontade:0,
     });
 
     function handleChange(evento) {
@@ -27,7 +32,24 @@ export function FormPrimario() {
         <form onSubmit={handleSubmit}>
             <label htmlFor="forca">Força</label>
             <input id="forca" name="atrForca" type="number" value={formPri.atrForca} onChange={handleChange}/>
+            
+            <label htmlFor="destreza">Destreza</label>
+            <input id="destreza" name="atrDestreza" type="number" value={formPri.atrDestreza} onChange={handleChange}/>
+                        
+            <label htmlFor="const">Constituição</label>
+            <input id="const" name="atrConst" type="number" value={formPri.atrConst} onChange={handleChange}/>
+                        
+            <label htmlFor="carisma">Carisma</label>
+            <input id="carisma" name="atrCarisma" type="number" value={formPri.atrCarisma} onChange={handleChange}/>
+                        
+            <label htmlFor="intel">Inteligência</label>
+            <input id="intel" name="atrIntel" type="number" value={formPri.atrIntel} onChange={handleChange}/>
+                        
+            <label htmlFor="vontade">Vontade</label>
+            <input id="vontade" name="atrVontade" type="number" value={formPri.atrVontade} onChange={handleChange}/>
+            
             <button type="submit">Send</button>
+            
         </form>
         
     </>)
