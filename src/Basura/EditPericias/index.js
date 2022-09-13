@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export function FormPericias() {
-    
+export function EditPericias() {
+    const navigate = useNavigate();
+    const {} = useParams();
+
     const [formDes, setForm] = useState ({
         desNome:"",
         // atrDestreza:0,
@@ -13,6 +16,19 @@ export function FormPericias() {
         // atrVontade:0,
     });
 
+    useEffect(() => {
+        async function fetchTip() {
+            try {
+                const resposta = await axios.get(`https://ironrest.herokuapp.com/chrbuilder/${}`);
+                //delete response.data.
+                setForm({...resposta.data});                
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        fetchTip();
+    })
+
     function handleChange(evento) {
         setForm({...formDes, [evento.target.name]:evento.target.value});
     }
@@ -21,7 +37,7 @@ export function FormPericias() {
         evento.preventDefault();
         console.log("adinam")
         try{
-            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilder", formDes)
+            const resposta = await axios.put(`https://ironrest.herokuapp.com/chrbuilder/${}`, formDes)
             console.log("burbuleos");
         }catch (err){
             console.log(err);
@@ -50,14 +66,7 @@ export function FormPericias() {
             <input id="vontade" name="atrVontade" type="number" value={formDes.atrVontade} onChange={handleChange}/>
              */}
             <button type="submit">Send</button>
-            <Link to={`/edit/${}`}>
-             <button type="submit">Edit</button>
-            </Link>
-            <button type="submit">Delete</button>
-        </form>
-        
-    </>)
 
-
-
+        </form>    
+    </>)    
 }

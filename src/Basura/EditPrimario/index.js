@@ -1,10 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-export function FormPrimario() {
-    
+export function EditPrimario() {
+    const navigate = useNavigate();
+    const {} = useParams();
+
     const [formPri, setForm] = useState ({
         atrForca:0,
         atrDestreza:0,
@@ -12,7 +13,20 @@ export function FormPrimario() {
         atrCarisma:0,
         atrIntel:0,
         atrVontade:0,
-    });        
+    });
+
+    useEffect(() => {
+        async function fetchTip() {
+            try {
+                const resposta = await axios.get(`https://ironrest.herokuapp.com/chrbuilder/${formPri}`);
+                //delete response.data.formPri
+                setForm({...resposta.data});                
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        fetchTip();
+    })
 
     function handleChange(evento) {
         setForm({...formPri, [evento.target.name]:evento.target.value});
@@ -27,28 +41,6 @@ export function FormPrimario() {
         }catch (err){
             console.log(err);
         }
-
-        function handleToast() {
-            toast((t) => (
-                <span>
-                  Você realmente quer <b>deletar</b> essa ficha?
-                  <button onClick={() => {
-                    handleDlete(t)                    
-                  }}>Sim</button>
-                  <button onClick={() => toast.dismiss(t.id)}>Não</button>
-                </span>
-              ));
-        }
-        async function handleDlete(t) {
-            try{
-                await axios.delete(`https://ironrest.herokuapp.com/chrbuilder/${formPri}`, formPri);
-
-                toast.dismiss(t.id);
-                navigate("/");
-            }catch (err){
-                console.log(err);
-            }
-        }    
     }
 
 
@@ -72,16 +64,9 @@ export function FormPrimario() {
             <label htmlFor="vontade">Vontade</label>
             <input id="vontade" name="atrVontade" type="number" value={formPri.atrVontade} onChange={handleChange}/>
             
-            <button type="submit">Send</button>
-            <Link to={`/edit/${}`}>
-             <button type="submit">Edit</button>
-             <button onClick={handleToast}>Delete</button>
-            </Link>
-
+            <button type="submit">Send</button>            
+            
         </form>
         
     </>)
-
-
-
 }
