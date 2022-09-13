@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-export function FormDescritivo() {
+export function FormPericias() {
     
     const [formDes, setForm] = useState ({
         desNome:"",
