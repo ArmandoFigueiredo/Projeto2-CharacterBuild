@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 
-
 export function FormPericias() {
     
     const [formPer, setForm] = useState ({
@@ -27,7 +26,7 @@ export function FormPericias() {
         evento.preventDefault();
         console.log("adinam")
         try{
-            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilder", formPer)
+            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilderPericias", formPer)
             console.log("burbuleos");
         }catch (err){
             console.log(err);
@@ -66,7 +65,8 @@ export function FormPericias() {
             
             </div>
 
-            <button type="submit">Send</button>            
+            <button type="submit">Send</button>
+            
         </form>
         
     </>)

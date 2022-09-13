@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 
-
 export function FormPrimario() {
     
     const [formPri, setForm] = useState ({
@@ -48,6 +47,7 @@ export function FormPrimario() {
         atrResistencia:1
     });
 
+
     function handleChange(evento) {
         setForm({...formPri, [evento.target.name]:evento.target.value});
     }
@@ -56,14 +56,13 @@ export function FormPrimario() {
         evento.preventDefault();
         console.log("dancinha")
         try{
-            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilder", formPri)
+            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilderPrincipal", formPri)
             console.log("parapar");
         }catch (err){
             console.log(err);
-        }        
+        }
     }
-
-
+    
     return(<>
     <form onSubmit={handleSubmit}>
         <div>
@@ -201,4 +200,5 @@ export function FormPrimario() {
 
 </>)
 
-}
+    }
+
