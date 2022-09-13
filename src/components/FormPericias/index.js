@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 export function FormPericias() {
     
@@ -27,7 +26,7 @@ export function FormPericias() {
         evento.preventDefault();
         console.log("adinam")
         try{
-            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilder", formPer)
+            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilderPericias", formPer)
             console.log("burbuleos");
         }catch (err){
             console.log(err);
@@ -67,10 +66,7 @@ export function FormPericias() {
             </div>
 
             <button type="submit">Send</button>
-            <Link to={`/edit/${}`}>
-             <button type="submit">Edit</button>
-            </Link>
-            <button type="submit">Delete</button>
+            
         </form>
         
     </>)
