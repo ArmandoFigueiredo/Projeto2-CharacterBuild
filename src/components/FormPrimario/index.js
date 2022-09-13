@@ -1,7 +1,5 @@
 import { useState } from "react";
 import axios from "axios";
-import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
 
 export function FormPrimario() {
     
@@ -49,6 +47,7 @@ export function FormPrimario() {
         atrResistencia:1
     });
 
+
     function handleChange(evento) {
         setForm({...formPri, [evento.target.name]:evento.target.value});
     }
@@ -57,36 +56,13 @@ export function FormPrimario() {
         evento.preventDefault();
         console.log("dancinha")
         try{
-            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilder", formPri)
+            const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilderPrincipal", formPri)
             console.log("parapar");
         }catch (err){
             console.log(err);
         }
-
-        function handleToast() {
-            toast((t) => (
-                <span>
-                  Você realmente quer <b>deletar</b> essa ficha?
-                  <button onClick={() => {
-                    handleDlete(t)                    
-                  }}>Sim</button>
-                  <button onClick={() => toast.dismiss(t.id)}>Não</button>
-                </span>
-              ));
-        }
-        async function handleDlete(t) {
-            try{
-                await axios.delete(`https://ironrest.herokuapp.com/chrbuilder/${formPri}`, formPri);
-
-                toast.dismiss(t.id);
-                navigate("/");
-            }catch (err){
-                console.log(err);
-            }
-        }    
     }
-
-
+    
     return(<>
     <form onSubmit={handleSubmit}>
         <div>
@@ -223,6 +199,5 @@ export function FormPrimario() {
     </form>
     </>)
 
+    }
 
-
-}
