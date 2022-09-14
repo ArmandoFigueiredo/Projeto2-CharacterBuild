@@ -1,12 +1,10 @@
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import style from "./style.module.css"
 
 
-export function CharacterFace() {
+export function CharacterFace() { 
  
-  // const { id } = useParams();
   const [face, setFace] = useState([]); 
  
   useEffect(() => {
@@ -35,7 +33,7 @@ export function CharacterFace() {
             <div>{currFace.desJogador}</div>
             <div>{currFace.periciaId}</div>
             {console.log(currFace.atrImagem)} 
-          </>)})
+          </>)})          
         }
       </div>
     </>
