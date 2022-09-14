@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import style from "./style.module.css"
 
 
 export function CharacterFace() {
@@ -14,7 +15,7 @@ export function CharacterFace() {
         const response = await axios.get(
           "https://ironrest.herokuapp.com/chrbuilderPrincipal/"
         );
-          console.log(response)
+        console.log(response)
         setFace(response.data);
         console.log(face)
       } catch (err) {
@@ -26,13 +27,14 @@ export function CharacterFace() {
 
   return (<>
       <h1>Consulta</h1> 
-      <div>
+      <div className={style.consulta}>
         {face.map((currFace)=>{
           return (<>
-            <img src={currFace.atrImagem} />          
-            <div>{currFace.desNome} </div>
-            <div>{currFace.desJogador} </div> 
-            <div>{currFace.periciaId} </div>              
+            <img className={style.imgface} src={currFace.atrImagem} />
+            <div>{currFace.desNome}</div> 
+            <div>{currFace.desJogador}</div>
+            <div>{currFace.periciaId}</div>
+            {console.log(currFace.atrImagem)} 
           </>)})
         }
       </div>
