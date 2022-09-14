@@ -1,7 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 
-export function FormPrimario() {
+import toast from "react-hot-toast";
+
+export function FormPrimario(props) {
     
     const [formPri, setForm] = useState ({
         desNome:"",
@@ -10,6 +12,7 @@ export function FormPrimario() {
         desNarrador:"",
         desCampanha:"",
         desDescricao:"",
+        atrImagem:"",
         atrForca:0,
         atrDestreza:0,
         atrConst:0,
@@ -57,7 +60,23 @@ export function FormPrimario() {
         console.log("dancinha")
         try{
             const resposta = await axios.post("https://ironrest.herokuapp.com/chrbuilderPrincipal", formPri)
-            console.log("parapar");
+            console.log(resposta);
+
+        props.setFichaId(resposta.data.insertedId)
+        console.log(resposta.data.insertedId)
+        props.setLiber(true);
+        
+        toast('Apapapa Aee!',
+                {
+                    icon: '💩',
+                    style: {
+                    borderRadius: '10px',
+                    background: '#333',
+                    color: '#fff',
+                    },
+                }
+);
+
         }catch (err){
             console.log(err);
         }
@@ -84,6 +103,9 @@ export function FormPrimario() {
                         
             <label htmlFor="descricao">Descrição</label>
             <input id="descricao" name="desDescricao" type="text" value={formPri.desDescricao} onChange={handleChange}/>
+
+            <label htmlFor="imagem">Imagem</label>
+            <input id="Imagem" name="atrImagem" type="text" value={formPri.atrImagem} onChange={handleChange}/>
         </div>
 
         <div>
