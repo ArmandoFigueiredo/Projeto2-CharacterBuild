@@ -6,7 +6,10 @@ import style from "./style.module.css"
 
 export function CharacterDetail(props) { 
  
-  const [detail, setDetail] = useState({}); 
+  const [detail, setDetail] = useState({
+    fichaId: "",
+    pericias: [],
+  }); 
   const [pericia, setPericia] = useState({});
  
   useEffect(() => {
@@ -23,7 +26,7 @@ export function CharacterDetail(props) {
       }
     }
     fetchCharacterDetail();
-  }, []);
+  }, [props.currFichaId]);
 
   useEffect(() => {
     async function fetchPericiaDetail() {
@@ -44,18 +47,8 @@ export function CharacterDetail(props) {
   return (<>
     <h1>Detalhes</h1> 
     <div className={style.detail}>
-      {detail.map((currDetail)=>{
-        return (<>          
-          {currDetail.pericias.map((currPer) =>{
-            return (<>
-                <div>
-                    
-                </div>                
-            </>            
-            )            
-          })}                          
-        </>)})       
-      }
+    <p></p>
+      
     </div>
   </>
 );
