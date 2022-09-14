@@ -29,8 +29,10 @@ export function CharacterFace() {
       <div>
         {face.map((currFace)=>{
           return (<>
-            <div>{currFace.desNome} teste</div> 
-            <div>{currFace.periciaId} teste</div>  
+            <img src={currFace.atrImagem} />          
+            <div>{currFace.desNome} </div>
+            <div>{currFace.desJogador} </div> 
+            <div>{currFace.periciaId} </div>              
           </>)})
         }
       </div>
