@@ -95,18 +95,6 @@ export function FormPrimario(props) {
         console.log(formPri.atrDanoBasico);
         console.log("baganananad");
         
-
-        // setAtributosSecundarios({...atributosSecundarios, 
-        //     danoBasico:Number(`${formPri.atrDanoBasico}`), 
-        //     iniciativa:Number(`${formPri.atrIniciativa}`),
-        //     sorte:Number(`${formPri.atrSorte}`),
-        //     vitalidade:Number(`${formPri.atrVitalidade}`),
-        //     ativacoes:Number(`${formPri.atrAtivacoes}`), 
-        //     resistencia:Number(`${formPri.atrResistencia}`)
-        // })
-        //console.log(atributosSecundarios.danoBasico);
-        //console.log("anananansiansianainsiansianisnaisin")
-        
         },[formPri.atrForca]);
     
     useEffect(()=>{
@@ -149,8 +137,6 @@ export function FormPrimario(props) {
                             
         },[formPri.atrVontade])
             
-    
-    
     
     return(<>
     <form onSubmit={handleSubmit}>
@@ -278,12 +264,12 @@ export function FormPrimario(props) {
         </div>
 
         <div>
-            {/* {formPri.map((curr)=>{return(<label>{curr}</label>)})} */}
-            <label htmlFor="iniciativa">Iniciativa</label>
-            <label htmlFor="sorte">Sorte</label>
-            <label htmlFor="vitalidade">Vitalidade</label>
-            <label htmlFor="ativacoes">Ativações</label>
-            <label htmlFor="resistencia">Resistência</label>
+        <label htmlFor="danobasico">Dano Basico: {formPri.atrDanoBasico} </label>
+        <label htmlFor="iniciativa">Iniciativa: {formPri.atrIniciativa} </label>
+        <label htmlFor="sorte">Sorte: {formPri.atrSorte} </label>
+        <label htmlFor="vitalidade">Vitalidade: {formPri.atrVitalidade}</label>
+        <label htmlFor="ativacoes">Ativações: {formPri.atrAtivacoes}</label>
+        <label htmlFor="resistencia">Resistência: {formPri.atrResistencia}</label>
         </div>
 
         {/* <div>
@@ -299,7 +285,26 @@ export function FormPrimario(props) {
 
     </form>
 
+   
 </>)
 
     }
 
+
+
+
+
+
+
+
+
+    // setAtributosSecundarios({...atributosSecundarios, 
+        //     danoBasico:Number(`${formPri.atrDanoBasico}`), 
+        //     iniciativa:Number(`${formPri.atrIniciativa}`),
+        //     sorte:Number(`${formPri.atrSorte}`),
+        //     vitalidade:Number(`${formPri.atrVitalidade}`),
+        //     ativacoes:Number(`${formPri.atrAtivacoes}`), 
+        //     resistencia:Number(`${formPri.atrResistencia}`)
+        // })
+        //console.log(atributosSecundarios.danoBasico);
+        //console.log("anananansiansianainsiansianisnaisin")
