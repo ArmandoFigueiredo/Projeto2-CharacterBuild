@@ -1,10 +1,10 @@
 
 .imgface {
-    width: 9em;
+    height: 15vh;
     /* border: 1px solid yellow; */
 }
 
-.facelist {
+.character {
     display: flex;
     flex-direction: column;
     margin: 0;
