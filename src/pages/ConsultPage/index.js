@@ -7,11 +7,10 @@ export function ConsultPage () {
 
     const [currFichaId, setCurrFichaId] = useState ("")
     
-
     return (<> 
     <div className="d-flex">
     <CharacterFace setCurrFichaId = {setCurrFichaId}/>
     <CharacterDetail currFichaId = {currFichaId}/>
     </div>       
- </>)
+</>)
 }
