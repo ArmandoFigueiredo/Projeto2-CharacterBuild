@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 import toast from "react-hot-toast";
@@ -50,6 +50,14 @@ export function FormPrimario(props) {
         atrResistencia:1
     });
 
+    const [atributosSecundarios, setAtributosSecundarios]= useState({
+        danoBasico:0,
+        iniciativa:0,
+        sorte:0,
+        vitalidade:0,
+        ativacoes:0,
+        resistencia:0
+    });
 
     function handleChange(evento) {
         setForm({...formPri, [evento.target.name]:evento.target.value});
@@ -81,6 +89,68 @@ export function FormPrimario(props) {
             console.log(err);
         }
     }
+    
+    useEffect(()=>{
+        setForm({...formPri, atrDanoBasico:1+Number(`${formPri.atrForca}`)});
+        console.log(formPri.atrDanoBasico);
+        console.log("baganananad");
+        
+
+        // setAtributosSecundarios({...atributosSecundarios, 
+        //     danoBasico:Number(`${formPri.atrDanoBasico}`), 
+        //     iniciativa:Number(`${formPri.atrIniciativa}`),
+        //     sorte:Number(`${formPri.atrSorte}`),
+        //     vitalidade:Number(`${formPri.atrVitalidade}`),
+        //     ativacoes:Number(`${formPri.atrAtivacoes}`), 
+        //     resistencia:Number(`${formPri.atrResistencia}`)
+        // })
+        //console.log(atributosSecundarios.danoBasico);
+        //console.log("anananansiansianainsiansianisnaisin")
+        
+        },[formPri.atrForca]);
+    
+    useEffect(()=>{
+        setForm({...formPri, atrIniciativa:1+Number(`${formPri.atrDestreza}`)});
+            
+        console.log(formPri.atrIniciativa);
+        console.log("tugalaradgunga");
+            
+        },[formPri.atrDestreza]);
+        
+    useEffect(()=>{
+        setForm({...formPri, atrSorte:3+Number(`${formPri.atrCarisma}`)});
+                
+        console.log(formPri.atrSorte);
+        console.log("Snagaganaganadaa");
+                
+        },[formPri.atrCarisma]);
+
+    useEffect(()=>{
+        setForm({...formPri, atrVitalidade:5+(3*Number(`${formPri.atrConst}`))});
+                    
+        console.log(formPri.atrVitalidade);
+        console.log("Larilaia");
+                    
+        },[formPri.atrConst]);
+
+    useEffect(()=>{
+        setForm({...formPri, atrAtivacoes:5+(3*Number(`${formPri.atrIntel}`))});
+                        
+        console.log(formPri.atrAtivacoes);
+        console.log("Gradfeasres");
+                        
+        },[formPri.atrIntel]);
+
+    useEffect(()=>{
+        setForm({...formPri, atrResistencia:1+(2*Number(`${formPri.atrVontade}`))});
+                            
+        console.log(formPri.atrResistencia);
+        console.log("haushauhsuahsuhauhsuausha");
+                            
+        },[formPri.atrVontade])
+            
+    
+    
     
     return(<>
     <form onSubmit={handleSubmit}>
@@ -208,13 +278,22 @@ export function FormPrimario(props) {
         </div>
 
         <div>
-            <label htmlFor="danobasico" value={formPri.atrDanoBasico}>Dano Básico</label>
+            {/* {formPri.map((curr)=>{return(<label>{curr}</label>)})} */}
             <label htmlFor="iniciativa">Iniciativa</label>
             <label htmlFor="sorte">Sorte</label>
             <label htmlFor="vitalidade">Vitalidade</label>
             <label htmlFor="ativacoes">Ativações</label>
             <label htmlFor="resistencia">Resistência</label>
         </div>
+
+        {/* <div>
+            {atributosSecundarios.map((currSecundario)=>{
+                return (<>
+                <label>{currSecundario}</label>
+                </>)
+            })
+            }
+        </div> */}
 
         <button type="submit">Send</button>
 
