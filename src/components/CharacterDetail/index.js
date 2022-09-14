@@ -3,15 +3,17 @@ import axios from "axios";
 import style from "./style.module.css"
 
 
-export function CharacterDetail() { 
+
+export function CharacterDetail(props) { 
  
-  const [detail, setDetail] = useState([]); 
+  const [detail, setDetail] = useState({}); 
+  const [pericia, setPericia] = useState({});
  
   useEffect(() => {
     async function fetchCharacterDetail() {
       try {
         const response = await axios.get(
-          "https://ironrest.herokuapp.com/chrbuilderPericias/"
+          `https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.currFichaId}`
         );
         console.log(response)
         setDetail(response.data);
@@ -23,6 +25,22 @@ export function CharacterDetail() {
     fetchCharacterDetail();
   }, []);
 
+  useEffect(() => {
+    async function fetchPericiaDetail() {
+        try {
+            const response = await axios.get(
+                `https://ironrest.herokuapp.com/chrbuilderPericias/${detail.periciaId}`
+            );
+            console.log(response)
+            setPericia(response.data);
+            console.log(pericia)
+        }   catch (err) {
+            console.log(err)
+        }
+    }
+    fetchPericiaDetail();
+  }, [detail])
+
   return (<>
     <h1>Detalhes</h1> 
     <div className={style.detail}>
@@ -30,8 +48,11 @@ export function CharacterDetail() {
         return (<>          
           {currDetail.pericias.map((currPer) =>{
             return (<>
-                <div></div>
-            </>)
+                <div>
+                    
+                </div>                
+            </>            
+            )            
           })}                          
         </>)})       
       }
@@ -39,3 +60,4 @@ export function CharacterDetail() {
   </>
 );
 }
+
