@@ -4,8 +4,9 @@ import style from "./style.module.css"
 
 export function CharacterFace(props) { 
 
-  function ButonDetails(id) {
-    props.setCurrFichaId (id)
+  function ButtonDetails(receive) {
+    props.setCurrFichaId (receive)
+    console.log(receive)
  }
  
   const [face, setFace] = useState([]); 
@@ -32,12 +33,11 @@ export function CharacterFace(props) {
         {face.map((currFace)=>{
           return (<>
             <img className={style.imgface} src={currFace.atrImagem} />
-            <div onClick={() => {
-              ButonDetails (currFace._id)
-            }}>{currFace.desNome}</div> 
+            <div onClick={() => {ButtonDetails (currFace._id)}}>{currFace.desNome}</div> 
             <div>{currFace.desJogador}</div>
             <div>{currFace.periciaId}</div>
-            {console.log(currFace.atrImagem)} 
+            <div>{currFace._id}</div>
+            
           </>)})          
         }
       </div>
