@@ -132,7 +132,7 @@ export function FormPrimario(props) {
         <div>
             <h2>Trunfos</h2>
             <label htmlFor="trunfo1">1</label>
-            <input id="trunfo1" name="desTrunfo1" type="text" value={formPri.desTrunfo1} onChange={handleChange}/>            
+            <input id="trunfo1" name="desTrunfo1" type="text" value={formPri.desTrunfo1} onChange={handleChange}/>         
 
             <label htmlFor="trunfo2">2</label>
             <input id="trunfo2" name="desTrunfo2" type="text" value={formPri.desTrunfo2} onChange={handleChange}/>
@@ -216,10 +216,11 @@ export function FormPrimario(props) {
             <label htmlFor="resistencia">Resistência</label>
         </div>
 
-    <button type="submit">Send</button>
+        <button type="submit">Send</button>
 
     </form>
-    </>)
+
+</>)
 
     }
 
