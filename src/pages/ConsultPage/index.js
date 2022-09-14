@@ -4,7 +4,6 @@ export function ConsultPage () {
     return (<> 
     <div>
      <CharacterFace />
-
     </div>       
  </>)
 }
