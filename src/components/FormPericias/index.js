@@ -7,7 +7,7 @@ export function FormPericias(props) {
     const [form, setForm] = useState({
         fichaId: "",
         pericias: [],
-      });
+    });
 
     const [currentPericia, setCurrentPericia] = useState ({
         desPericia:"",
