@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import style from "./style.module.css"
-
-
+import toast from "react-hot-toast"
 
 export function CharacterDetail(props) { 
   const [detail, setDetail] = useState({}); 
@@ -55,6 +54,18 @@ export function CharacterDetail(props) {
     fetchPericiaDetail();
   }, [detail]);
 
+  function handleToast () {
+    toast((t) => (
+      <span>
+        Você quer mesmo <b>deletar</b> essa ficha?
+        <button onClick={handleDelete}>Sim</button>
+        <button onClick={() => toast.dismiss(t.id)}>Não</button>
+      </span>
+    ));
+  }
+
+  function handleDelete () {}
+
   return ( 
     <div className={style.container}>
     <div className={style.detail}>
@@ -71,6 +82,26 @@ export function CharacterDetail(props) {
             <p>Descrição: {detail.desDescricao} </p>
         </div>
 
+        <div> 
+          <img src={detail.atrImagem} />
+        </div>        
+
+        <div>
+        <h3>Inventário</h3>
+        <p>Básico: {detail.infInventario1} </p>
+        <p>1: {detail.infInventario2} </p>
+        <p>2: {detail.infInventario3} </p>
+        <p>3: {detail.infInventario4} </p>
+        <p>4: {detail.infInventario5} </p>
+        <p>5: {detail.infInventario6} </p>
+        <p>Extra 1: {detail.infInventario7} </p>
+        <p>Extra 2: {detail.infInventario8} </p>
+        <p>Extra 3: {detail.infInventario9} </p>
+        </div>       
+
+        </div>
+        
+        <div className={style.cardColumn}> 
 
         <div>
           <h3>Atributos</h3>
@@ -90,28 +121,7 @@ export function CharacterDetail(props) {
           <p>Vitalidade: {detail.atrVitalidade} </p>
           <p>Ativações: {detail.atrAtivacoes} </p>
           <p>Resistencia: {detail.atrResistencia} </p>                                 
-        </div> 
-
-        <div>
-        <h3>Inventário</h3>
-        <p>Básico: {detail.infInventario1} </p>
-        <p>1: {detail.infInventario2} </p>
-        <p>2: {detail.infInventario3} </p>
-        <p>3: {detail.infInventario4} </p>
-        <p>4: {detail.infInventario5} </p>
-        <p>5: {detail.infInventario6} </p>
-        <p>Extra 1: {detail.infInventario7} </p>
-        <p>Extra 2: {detail.infInventario8} </p>
-        <p>Extra 3: {detail.infInventario9} </p>
-        </div>       
-
-        </div>
-        
-        <div className={style.cardColumn}>
-
-        <div> 
-          <img src={detail.atrImagem} />
-        </div>
+        </div>        
           
         <div>
             <h3>Trunfos</h3>                   
@@ -156,6 +166,7 @@ export function CharacterDetail(props) {
           </div>
         </div>          
     </div>
+    <button onClick={handleToast}>Delete</button>
   </div>
      )
             }
