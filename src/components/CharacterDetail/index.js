@@ -6,7 +6,7 @@ import style from "./style.module.css"
 
 export function CharacterDetail(props) { 
   const [detail, setDetail] = useState({}); 
-  const [pericia, setPericia] = useState({});
+  const [pericia, setPericia] = useState([]);
   
   // useEffect(() => {
   //   async function fetchCharacterDetail1() {
@@ -35,6 +35,7 @@ export function CharacterDetail(props) {
     }
     fetchCharacterDetail();
   }, [props.currFichaId]);
+    
 
 
   useEffect(() => {
@@ -43,9 +44,10 @@ export function CharacterDetail(props) {
             const response = await axios.get(
                 `https://ironrest.herokuapp.com/chrbuilderPericias/${detail.periciaId}`
             );
+            console.log(detail.periciaId)
             console.log(response)
-            setPericia(response.data);
-            console.log('>>>>>>>>>>>>>>>>>>>>', pericia);
+            setPericia(response.data.pericias);
+            console.log(pericia);
         }   catch (err) {
             console.log(err)
         }
@@ -122,13 +124,13 @@ export function CharacterDetail(props) {
         </div>
         <div>
         <hr></hr>
-        {/* {pericia.pericias.map((currPerShow)=>{
+        {pericia.map((currPerShow)=>{
           return (<>
         <label>{currPerShow.desPericia}</label>
         <label>x{currPerShow.atrPericia} </label>
         <label>{currPerShow.desEspecial1}</label>
         <label>x{currPerShow.atrEspecial1} </label>
-        </>)})}; */}
+        </>)})};
         </div>
         </section>
     </div>
@@ -136,3 +138,6 @@ export function CharacterDetail(props) {
     </>
 );
 }
+
+
+
