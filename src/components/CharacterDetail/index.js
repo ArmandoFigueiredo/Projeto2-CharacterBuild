@@ -7,6 +7,8 @@ export function CharacterDetail(props) {
   const [detail, setDetail] = useState({}); 
   const [pericia, setPericia] = useState([]); 
  
+const {setEditOk}=props
+
   useEffect(() => {
     async function fetchCharacterDetail() {
       try {
@@ -163,6 +165,7 @@ export function CharacterDetail(props) {
           </div>
         </div>          
     </div>
+    <button onClick={() => {setEditOk(true)}}>Editar</button>
     <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
   </div>
   )
