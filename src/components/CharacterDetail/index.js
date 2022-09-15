@@ -5,10 +5,23 @@ import style from "./style.module.css"
 
 
 export function CharacterDetail(props) { 
- 
   const [detail, setDetail] = useState({}); 
   const [pericia, setPericia] = useState([]);
   
+  // useEffect(() => {
+  //   async function fetchCharacterDetail1() {
+  //     try {
+  //       const response = await axios.get(
+  //         https://ironrest.herokuapp.com/chrbuilderPrincipal/6321dd0c4bf6cd00178ada57
+  //       );
+  //       setDetail(response.data);
+  //       } catch (err) {
+  //       console.log(err);
+  //     }
+  //   }
+  //   fetchCharacterDetail1();
+  // }, []);
+
   useEffect(() => {
     async function fetchCharacterDetail() {
       try {
@@ -23,6 +36,7 @@ export function CharacterDetail(props) {
     fetchCharacterDetail();
   }, [props.currFichaId]);
     
+
 
   useEffect(() => {
     async function fetchPericiaDetail() {
@@ -39,8 +53,7 @@ export function CharacterDetail(props) {
         }
     }
     fetchPericiaDetail();
-  }, [detail])
-        
+  }, [detail]);
 
   return (<div className={style.container}>
     <h1>Detalhes Personagens</h1> 
@@ -49,6 +62,7 @@ export function CharacterDetail(props) {
         <div className={style.cardColumn}>
 
         <div>
+
             <p>Nome: {detail.desNome} </p>
             <p>Tipo: {detail.desTipo} </p>
             <p>Jogador: {detail.desJogador} </p>
@@ -56,6 +70,7 @@ export function CharacterDetail(props) {
             <p>Campanha: {detail.desCampanha} </p>
             <p>Descrição: {detail.desDescricao} </p>
         </div>
+
 
         <div>
            <p>Força: {detail.atrForca} </p>
@@ -67,12 +82,14 @@ export function CharacterDetail(props) {
         </div>
 
         <div>
+
         <p>Dano Básico: {detail.atrDanoBasico} </p>
         <p>Iniciativa: {detail.atrIniciativa} </p>
         <p>Sorte: {detail.atrSorte} </p>
         <p>Vitalidade: {detail.atrVitalidade} </p>
         <p>Ativações: {detail.atrAtivacoes} </p>
         <p>Resistencia: {detail.atrResistencia} </p>                                 
+
         </div> 
 
         <div>
@@ -113,9 +130,7 @@ export function CharacterDetail(props) {
         <p>Sina3: {detail.desSina3} </p>
         <p>Sina4: {detail.desSina4} </p>
         <p>Sina5: {detail.desSina5} </p>
-        </div>
-                  
-        </div>
+ 
 
         <div className={style.cardColumn}>          
 
@@ -136,6 +151,14 @@ export function CharacterDetail(props) {
         </div>          
     </div>    
 </div>
+
+        </section>
+    </div>
+    </div>
+    </>
+
 );
 }
+
+
 
