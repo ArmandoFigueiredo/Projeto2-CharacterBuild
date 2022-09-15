@@ -9,6 +9,21 @@
     height: auto;
   }
 
+.detail {
+  display:flex;
+  gap: 15px;
+}
+
+.cardColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cardColumn div {
+  border: 1px solid black;
+}
+
 .detail p {
     padding: 0;
     margin: 0;
@@ -21,4 +36,11 @@
 
 .detail section {
     display: flex;
+}
+
+div.pericia {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border: none;
 }
