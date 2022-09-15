@@ -47,26 +47,47 @@ export function AttributesEdit (props){
         atrVitalidade:5,
         atrAtivacoes:5,
         atrResistencia:1,
-        periciaId: "6321e15e4bf6cd00178ada60"
+        periciaId: ""
     })
+
+    const [periciasEdit, setPericiasEdit] = useState ({
+        pericias:[]
+    })    
+
+    
 
     useEffect(() => {
         async function fetchCharacterEdit() {
             try {
             
-                const response = await axios.get(
+            const response = await axios.get(
                 `https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.idEdit}`
                 );
+                
             setDadosEditaveis(response.data);
-            //console.log(dadosEditaveis);
-            //console.log("aushuahsuauhsasidjaisjdisaidsjau")
+
+            const response2 = await axios.get(
+                `https://ironrest.herokuapp.com/chrbuilderPericias/${dadosEditaveis.periciaId}`
+                );
+            setPericiasEdit(response2.data);
+            
+            console.log(dadosEditaveis.periciaId);
+            console.log("aus111111111111111111111111111")
             } catch (err) {
             console.log(err);
         }
-        }
         fetchCharacterEdit();
-    }, []);
+    }
+    }, [props.idEdit]);
 
+    // useEffect(() => {
+    //     async function fetchPericiasEdit() {
+            
+            
+    //     }
+    //     }
+    //     fetchPericiasEdit();
+    // }, [dadosEditaveis.periciaId]);
 
     function handleChange(evento) {
             //console.log(dadosEditaveis);
@@ -129,6 +150,21 @@ export function AttributesEdit (props){
         </div>
         <button type="submit">Modificando !</button>
     </form>
+    <div>
+        {/* {periciasEdit.pericias.map((curP)=>{
+            
+            return (<>
+            <h1>hello</h1>
+            <form>
+            <input id="bla" name="blabla" type="text" value={curP.desPericia} onChange={handleChange}/>      
+            <button type="submit">Editar</button>
+            </form>
+            </>
+            )
+        })} */}
+
+    </div>
+    
     </>)
 
 
