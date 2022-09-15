@@ -5,22 +5,8 @@ import toast from "react-hot-toast"
 
 export function CharacterDetail(props) { 
   const [detail, setDetail] = useState({}); 
-  const [pericia, setPericia] = useState([]);
-  
-  // useEffect(() => {
-  //   async function fetchCharacterDetail1() {
-  //     try {
-  //       const response = await axios.get(
-  //         https://ironrest.herokuapp.com/chrbuilderPrincipal/6321dd0c4bf6cd00178ada57
-  //       );
-  //       setDetail(response.data);
-  //       } catch (err) {
-  //       console.log(err);
-  //     }
-  //   }
-  //   fetchCharacterDetail1();
-  // }, []);
-
+  const [pericia, setPericia] = useState([]); 
+ 
   useEffect(() => {
     async function fetchCharacterDetail() {
       try {
@@ -42,11 +28,8 @@ export function CharacterDetail(props) {
         try {
             const response = await axios.get(
                 `https://ironrest.herokuapp.com/chrbuilderPericias/${detail.periciaId}`
-            );
-            console.log(detail.periciaId)
-            console.log(response)
-            setPericia(response.data.pericias);
-            console.log(pericia);
+            );            
+            setPericia(response.data.pericias);            
         }   catch (err) {
             console.log(err)
         }
@@ -54,17 +37,31 @@ export function CharacterDetail(props) {
     fetchPericiaDetail();
   }, [detail]);
 
-  function handleToast () {
+  function handleToast () {    
     toast((t) => (
       <span>
         Você quer mesmo <b>deletar</b> essa ficha?
-        <button onClick={handleDelete}>Sim</button>
+        <button onClick={() => {handleDelete ()}}>Sim</button>
         <button onClick={() => toast.dismiss(t.id)}>Não</button>
       </span>
     ));
   }
+  
+    async function handleDelete(t) {
+      console.log(props.currFichaId)
+      try {
+        await axios.delete(
+          `https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.currFichaId}`          
+        ); 
+        await axios.delete(
+          `https://ironrest.herokuapp.com/chrbuilderPericias/${detail.periciaId}`          
+        ); 
+        toast.dismiss(t)      
+        } catch (err) {
+        console.log(err);
+      }
+    }
 
-  function handleDelete () {}
 
   return ( 
     <div className={style.container}>
@@ -166,7 +163,8 @@ export function CharacterDetail(props) {
           </div>
         </div>          
     </div>
-    <button onClick={handleToast}>Delete</button>
+    <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
   </div>
-     )
-            }
+  )
+}
+          
