@@ -43,11 +43,12 @@ export function CharacterDetail(props) {
         
 
   return (<div className={style.container}>
-    <h1>Detalhes</h1> 
+    <h1>Detalhes Personagens</h1> 
     <div className={style.detail}>
           
         <div className={style.cardColumn}>
-        <div className={style.one}>
+
+        <div>
             <p>Nome: {detail.desNome} </p>
             <p>Tipo: {detail.desTipo} </p>
             <p>Jogador: {detail.desJogador} </p>
@@ -56,7 +57,7 @@ export function CharacterDetail(props) {
             <p>Descrição: {detail.desDescricao} </p>
         </div>
 
-        <div className={style.two}>
+        <div>
            <p>Força: {detail.atrForca} </p>
            <p>Destreza: {detail.atrDestreza} </p>
            <p>Const: {detail.atrConst} </p>
@@ -65,7 +66,7 @@ export function CharacterDetail(props) {
            <p>Vontade: {detail.atrVontade} </p>
         </div>
 
-        <div className={style.six}>
+        <div>
         <p>Dano Básico: {detail.atrDanoBasico} </p>
         <p>Iniciativa: {detail.atrIniciativa} </p>
         <p>Sorte: {detail.atrSorte} </p>
@@ -74,7 +75,7 @@ export function CharacterDetail(props) {
         <p>Resistencia: {detail.atrResistencia} </p>                                 
         </div> 
 
-        <div className={style.five}>
+        <div>
         <p>Inventário1: {detail.infInventario1} </p>
         <p>Inventário2: {detail.infInventario2} </p>
         <p>Inventário3: {detail.infInventario3} </p>
@@ -89,8 +90,12 @@ export function CharacterDetail(props) {
         </div>
         
         <div className={style.cardColumn}>
+
+        <div> 
+          <img src={detail.atrImagem} />
+        </div>
           
-        <div className={style.three}>                         
+        <div>                         
             <p>Trunfo1: {detail.desTrunfo1} </p>
             <p>Trunfo2: {detail.desTrunfo2} </p>
             <p>Trunfo3: {detail.desTrunfo3} </p>
@@ -102,7 +107,7 @@ export function CharacterDetail(props) {
             <p>Trunfo9: {detail.desTrunfo9} </p>        
         </div>
         
-        <div className={style.four}>
+        <div>
         <p>Sina1: {detail.desSina1} </p>
         <p>Sina2: {detail.desSina2} </p>
         <p>Sina3: {detail.desSina3} </p>
@@ -112,27 +117,23 @@ export function CharacterDetail(props) {
                   
         </div>
 
-        <div className={style.cardColumn}>
-          <div> 
-          <img src={detail.atrImagem} />
-          </div>
+        <div className={style.cardColumn}>          
+
           <div className={style.pericia}>
             { pericia.map((currPericia, index) => (
               <div key={index}>
                 
-              <p>desPericia:  {currPericia.desPericia} : <span>{currPericia.atrPericia}</span></p>
-              
-              <p>desEspecial1: {currPericia.desEspecial1} : <span>{currPericia.atrEspecial1}</span></p>
-              <p>desEspecial2: {currPericia.desEspecial2} : <span>{currPericia.atrEspecial2}</span></p>
-              <p>desEspecial3: {currPericia.desEspecial3} : <span>{currPericia.atrEspecial3}</span></p>
-              <p>desEspecial4: {currPericia.desEspecial4} : <span>{currPericia.atrEspecial4}</span></p>
-              <p>desEspecial5: {currPericia.desEspecial5} : <span>{currPericia.atrEspecial5}</span></p>
+              <p>Pericia:  {currPericia.desPericia} : <span>{currPericia.atrPericia}</span></p>              
+              <p>Especial1: {currPericia.desEspecial1} : <span>{currPericia.atrEspecial1}</span></p>
+              <p>Especial2: {currPericia.desEspecial2} : <span>{currPericia.atrEspecial2}</span></p>
+              <p>Especial3: {currPericia.desEspecial3} : <span>{currPericia.atrEspecial3}</span></p>
+              <p>Especial4: {currPericia.desEspecial4} : <span>{currPericia.atrEspecial4}</span></p>
+              <p>Especial5: {currPericia.desEspecial5} : <span>{currPericia.atrEspecial5}</span></p>
               
               </div>
             ))}
           </div>
-        </div>
-          
+        </div>          
     </div>    
 </div>
 );
