@@ -55,7 +55,8 @@ export function CharacterDetail(props) {
     fetchPericiaDetail();
   }, [detail]);
 
-  return (<div className={style.container}>
+  return ( 
+    <div className={style.container}>
     <h1>Detalhes Personagens</h1> 
     <div className={style.detail}>
           
@@ -130,7 +131,9 @@ export function CharacterDetail(props) {
         <p>Sina3: {detail.desSina3} </p>
         <p>Sina4: {detail.desSina4} </p>
         <p>Sina5: {detail.desSina5} </p>
- 
+        
+        </div>
+        </div>
 
         <div className={style.cardColumn}>          
 
@@ -149,16 +152,7 @@ export function CharacterDetail(props) {
             ))}
           </div>
         </div>          
-    </div>    
-</div>
-
-        </section>
     </div>
-    </div>
-    </>
-
-);
-}
-
-
-
+  </div>
+     )
+            }

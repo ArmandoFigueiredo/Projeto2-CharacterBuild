@@ -32,12 +32,12 @@ export function CharacterFace(props) {
       <div className={style.consulta}>
         {face.map((currFace)=>{
           return (
-            <div className={style.cardColumn}>
+            <div className={style.cardColumn} onClick={() => {ButtonDetails (currFace._id)}}>
 
             <div>
 
             <img className={style.imgface} src={currFace.atrImagem} />
-            <div onClick={() => {ButtonDetails (currFace._id)}}>{currFace.desNome}</div> 
+            <div >{currFace.desNome}</div> 
             <div>{currFace.desJogador}</div>
             <div>{currFace.desCampanha}</div>
 
