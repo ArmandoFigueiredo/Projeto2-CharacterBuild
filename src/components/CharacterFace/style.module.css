@@ -1,18 +1,19 @@
 
 .imgface {
-    height: 15vh;
+    max-width: 15vh;
     /* border: 1px solid yellow; */
 }
 
-.character {
+.cardColumn {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    text-align: center;    
-    padding-left: 20px;
+    margin: 10px;
+    text-align: center;   
+    height: auto;    
+    border: 1px solid black;  
+    gap: 15px;
     padding-bottom: 20px;
-    padding-top: 10px;    
-    height: auto;
-  }
-  
+    padding-top: 10px;      
+}
+
   
