@@ -15,5 +15,6 @@ export function ConsultPage () {
     {!editOk ? <CharacterDetail currFichaId = {currFichaId}/>:<></>}
     {editOk ? <EditPage currFichaId={currFichaId}/> : <></>}
     </div>
+
 </>)
 }
