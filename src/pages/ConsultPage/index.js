@@ -6,13 +6,15 @@ import {useState} from "react"
 
 export function ConsultPage () {
 
-    const [currFichaId, setCurrFichaId] = useState ("")
+    const [currFichaId, setCurrFichaId] = useState ("6321e0ae4bf6cd00178ada5e");
+    const [editOk, setEditOk]=useState(true);
     
     return (<> 
     <div className="d-flex">
-    <CharacterFace setCurrFichaId = {setCurrFichaId}/>
-    <CharacterDetail currFichaId = {currFichaId}/>
-    <EditPage />
-    </div>       
+    {!editOk ? <CharacterFace setCurrFichaId = {setCurrFichaId}/>:<></>}
+    {!editOk ? <CharacterDetail currFichaId = {currFichaId}/>:<></>}
+    {editOk ? <EditPage currFichaId={currFichaId}/> : <></>}
+    </div>
+
 </>)
 }
