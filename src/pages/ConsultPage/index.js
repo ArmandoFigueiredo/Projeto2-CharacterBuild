@@ -11,9 +11,16 @@ export function ConsultPage () {
     
     return (<> 
     <div className="d-flex">
+<<<<<<< HEAD
     {!editOk ? <CharacterFace setCurrFichaId = {setCurrFichaId}/>:<></>}
     {!editOk ? <CharacterDetail currFichaId = {currFichaId}/>:<></>}
     {editOk ? <EditPage currFichaId={currFichaId}/> : <></>}
     </div>
+=======
+    <CharacterFace setCurrFichaId = {setCurrFichaId}/>
+    <CharacterDetail currFichaId = {currFichaId}/>
+    <EditPage />
+    </div>       
+>>>>>>> 128876ec2c12deb9b492c8f8e1092c9d4fcc6628
 </>)
 }
