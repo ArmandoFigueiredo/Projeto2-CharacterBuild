@@ -6,7 +6,7 @@ export function CharacterFace(props) {
 
   function ButtonDetails(receive) {
     props.setCurrFichaId (receive)
-    console.log(receive)
+    
  }
  
   const [face, setFace] = useState([]); 
@@ -17,9 +17,9 @@ export function CharacterFace(props) {
         const response = await axios.get(
           "https://ironrest.herokuapp.com/chrbuilderPrincipal/"
         );
-        console.log(response)
+        
         setFace(response.data);
-        console.log(face)
+        
       } catch (err) {
         console.log(err);
       }

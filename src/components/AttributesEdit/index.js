@@ -2,8 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast"
 
-export function AttributesEdit (props){
-        
+export function AttributesEdit ({id, setPericid, setToggle}){
+    
+    let listPericias=[];
     const [dadosEditaveis, setDadosEditaveis] = useState ({
         desNome:"",
         desTipo:"",
@@ -50,45 +51,25 @@ export function AttributesEdit (props){
         periciaId: ""
     })
 
-    const [periciasEdit, setPericiasEdit] = useState ({
-        pericias:[]
-    })    
+   
+
+    useEffect(()=>{
+        async function fetchCharEdit (){
+            try{
+            
+            const response = await axios.get(`https://ironrest.herokuapp.com/chrbuilderPrincipal/${id}`);
+            setDadosEditaveis(response.data);
+            console.log(response.data.periciaId);
+            
+
+            } catch (err) {
+                console.log (err)
+            }
+        }
+        fetchCharEdit();
+    },[])
 
     
-
-    useEffect(() => {
-        async function fetchCharacterEdit() {
-            try {
-            
-            const response = await axios.get(
-                `https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.idEdit}`
-                );
-                
-            setDadosEditaveis(response.data);
-
-            const response2 = await axios.get(
-                `https://ironrest.herokuapp.com/chrbuilderPericias/${dadosEditaveis.periciaId}`
-                );
-            setPericiasEdit(response2.data);
-            
-            console.log(dadosEditaveis.periciaId);
-            console.log("aus111111111111111111111111111")
-            } catch (err) {
-            console.log(err);
-        }
-        fetchCharacterEdit();
-    }
-    }, [props.idEdit]);
-
-    // useEffect(() => {
-    //     async function fetchPericiasEdit() {
-            
-            
-    //     }
-    //     }
-    //     fetchPericiasEdit();
-    // }, [dadosEditaveis.periciaId]);
-
     function handleChange(evento) {
             //console.log(dadosEditaveis);
             setDadosEditaveis({...dadosEditaveis, [evento.target.name]:evento.target.value});
@@ -96,15 +77,15 @@ export function AttributesEdit (props){
     
     async function handleSubmit(evento) {
         evento.preventDefault();
-        // console.log("loracato")
-        // console.log(props.idEdit)
         delete dadosEditaveis._id;
 
         try{
-            const resposta = await axios.put(`https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.idEdit}`, dadosEditaveis)
+            const resposta = await axios.put(`https://ironrest.herokuapp.com/chrbuilderPrincipal/${id}`, dadosEditaveis)
             
-        //console.log("burbuleos");
-        
+        console.log("burbuleos");
+        setPericid(dadosEditaveis.periciaId);
+        setToggle(true);
+
         toast('Yahhaoooaoooa!',
             {
                 icon: '🦴',
@@ -150,20 +131,7 @@ export function AttributesEdit (props){
         </div>
         <button type="submit">Modificando !</button>
     </form>
-    <div>
-        {/* {periciasEdit.pericias.map((curP)=>{
-            
-            return (<>
-            <h1>hello</h1>
-            <form>
-            <input id="bla" name="blabla" type="text" value={curP.desPericia} onChange={handleChange}/>      
-            <button type="submit">Editar</button>
-            </form>
-            </>
-            )
-        })} */}
-
-    </div>
+    
     
     </>)
 

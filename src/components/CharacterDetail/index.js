@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import style from "./style.module.css"
 import toast from "react-hot-toast"
+import {Link} from "react-router-dom"
 
 export function CharacterDetail(props) { 
   const [detail, setDetail] = useState({}); 
@@ -165,7 +166,8 @@ const {setEditOk}=props
           </div>
         </div>          
     </div>
-    <button onClick={() => {setEditOk(true)}}>Editar</button>
+    <Link to={`/editpage/${detail._id}`}><button>Editar</button></Link>
+    
     <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
   </div>
   )
