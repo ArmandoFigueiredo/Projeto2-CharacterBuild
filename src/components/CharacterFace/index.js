@@ -28,15 +28,23 @@ export function CharacterFace(props) {
   }, []);
 
   return (<div className={style.character}>
-      <h1>Consulta</h1> 
+      <h1>Personagens</h1> 
       <div className={style.consulta}>
         {face.map((currFace)=>{
-          return (<>
+          return (
+            <div className={style.cardColumn} onClick={() => {ButtonDetails (currFace._id)}}>
+
+            <div>
+
             <img className={style.imgface} src={currFace.atrImagem} />
-            <div onClick={() => {ButtonDetails (currFace._id)}}>{currFace.desNome}</div> 
+            <div >{currFace.desNome}</div> 
             <div>{currFace.desJogador}</div>
-            <div>{currFace.desCampanha}</div>                       
-          </>)})          
+            <div>{currFace.desCampanha}</div>
+
+            </div>
+            
+            </div>                                   
+          )})          
         }
       </div>
     </div>
