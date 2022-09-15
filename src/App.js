@@ -3,6 +3,7 @@ import {Home} from "./pages/Home"
 import {BuildPage} from "./pages/BuildPage"
 import {ConsultPage} from "./pages/ConsultPage"
 import {Toaster} from "react-hot-toast"
+import {EditPage} from "./pages/EditPage"
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/buildpage" element={<BuildPage/>} />
       <Route path="/consultpage" element={<ConsultPage/>} />
+      <Route path="/editpage" element={<EditPage />} />
     </Routes>      
     </>
   );
