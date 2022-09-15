@@ -126,11 +126,15 @@ export function CharacterDetail(props) {
         <hr></hr>
         {pericia.map((currPerShow)=>{
           return (<>
-        <label>{currPerShow.desPericia}</label>
-        <label>x{currPerShow.atrPericia} </label>
-        <label>{currPerShow.desEspecial1}</label>
-        <label>x{currPerShow.atrEspecial1} </label>
-        </>)})};
+            <label>{currPerShow.desPericia}</label>
+            <label>x{currPerShow.atrPericia} </label>
+            
+            {currPerShow.atrEspecial1 ? (<>
+            <label>{currPerShow.desEspecial1}</label> 
+            <label>x{currPerShow.atrEspecial1} </label> </>): (<> </>)}
+            </>
+          )})};
+
         </div>
         </section>
     </div>
