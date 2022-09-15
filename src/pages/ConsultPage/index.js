@@ -1,6 +1,6 @@
 import {CharacterFace} from "../../components/CharacterFace"
 import {CharacterDetail} from "../../components/CharacterDetail"
-import {ConsultPage} from "../ConsultPage"
+import {EditPage} from "../EditPage"
 import {useState} from "react"
 
 
@@ -12,7 +12,7 @@ export function ConsultPage () {
     <div className="d-flex">
     <CharacterFace setCurrFichaId = {setCurrFichaId}/>
     <CharacterDetail currFichaId = {currFichaId}/>
-    <ConsultPage />
+    <EditPage />
     </div>       
 </>)
 }
