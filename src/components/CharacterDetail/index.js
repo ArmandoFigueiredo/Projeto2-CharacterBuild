@@ -104,7 +104,7 @@ const {setEditOk}=props
         <div className={style.editBtn}>
           <Link to={`/editpage/${detail._id}`}><button>Editar</button></Link>
         </div>
-          <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
+          <button className={style.delBtn} onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
         </div>
         </div>
         
@@ -161,7 +161,7 @@ const {setEditOk}=props
               <div key={index}>
                 
               <p>{currPericia.desPericia} x<span>{currPericia.atrPericia}</span></p>
-              <div>              
+              <div className={style.box}>              
               <label>{currPericia.desEspecial1} x<span>{currPericia.atrEspecial1}</span> </label>
               <label>{currPericia.desEspecial2} x<span>{currPericia.atrEspecial2}</span> </label>
               <label>{currPericia.desEspecial3} x<span>{currPericia.atrEspecial3}</span> </label>
@@ -173,9 +173,9 @@ const {setEditOk}=props
           </div>
 
         </div>          
-    </div>
+    </div>  
 
-    </div>
+  </div>
   )
 }
           

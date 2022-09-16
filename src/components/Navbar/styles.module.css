@@ -2,12 +2,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: gray;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    text-align: center;
 }
 
-.navBar a {
+/* .navBar a {
     color: white;
     text-decoration: none;
     padding: 10px;
@@ -16,4 +14,4 @@
 
 .navBar a:hover {
     color: black;
-}
+} */
