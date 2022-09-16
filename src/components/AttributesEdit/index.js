@@ -2,8 +2,9 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast"
 
-export function AttributesEdit (props){
-        
+export function AttributesEdit ({id, setPericid, setToggle}){
+    
+    let listPericias=[];
     const [dadosEditaveis, setDadosEditaveis] = useState ({
         desNome:"",
         desTipo:"",
@@ -47,27 +48,28 @@ export function AttributesEdit (props){
         atrVitalidade:5,
         atrAtivacoes:5,
         atrResistencia:1,
-        periciaId: "6321e15e4bf6cd00178ada60"
+        periciaId: ""
     })
 
-    useEffect(() => {
-        async function fetchCharacterEdit() {
-            try {
+   
+
+    useEffect(()=>{
+        async function fetchCharEdit (){
+            try{
             
-                const response = await axios.get(
-                `https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.idEdit}`
-                );
+            const response = await axios.get(`https://ironrest.herokuapp.com/chrbuilderPrincipal/${id}`);
             setDadosEditaveis(response.data);
-            //console.log(dadosEditaveis);
-            //console.log("aushuahsuauhsasidjaisjdisaidsjau")
+            console.log(response.data.periciaId);
+            
+
             } catch (err) {
-            console.log(err);
+                console.log (err)
+            }
         }
-        }
-        fetchCharacterEdit();
-    }, []);
+        fetchCharEdit();
+    },[])
 
-
+    
     function handleChange(evento) {
             //console.log(dadosEditaveis);
             setDadosEditaveis({...dadosEditaveis, [evento.target.name]:evento.target.value});
@@ -75,15 +77,15 @@ export function AttributesEdit (props){
     
     async function handleSubmit(evento) {
         evento.preventDefault();
-        // console.log("loracato")
-        // console.log(props.idEdit)
         delete dadosEditaveis._id;
 
         try{
-            const resposta = await axios.put(`https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.idEdit}`, dadosEditaveis)
+            const resposta = await axios.put(`https://ironrest.herokuapp.com/chrbuilderPrincipal/${id}`, dadosEditaveis)
             
-        //console.log("burbuleos");
-        
+        console.log("burbuleos");
+        setPericid(dadosEditaveis.periciaId);
+        setToggle(true);
+
         toast('Yahhaoooaoooa!',
             {
                 icon: '🦴',
@@ -129,6 +131,8 @@ export function AttributesEdit (props){
         </div>
         <button type="submit">Modificando !</button>
     </form>
+    
+    
     </>)
 
 
