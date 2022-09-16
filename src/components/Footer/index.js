@@ -1,5 +1,7 @@
+import style from "./styles.module.css"
+
 export function Footer(){
-    return(<>
-        <h1>Barreta dos Pézitos</h1>
-        </>)
+    return(<footer className={style.footer}>
+        <h5>Feito por Armando Figueiredo e Roger Heinz</h5>
+        </footer>)
 }

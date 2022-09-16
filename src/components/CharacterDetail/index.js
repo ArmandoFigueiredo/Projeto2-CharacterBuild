@@ -50,7 +50,8 @@ const {setEditOk}=props
   }
   
     async function handleDelete(t) {
-      console.log(props.currFichaId)
+      console.log(props.currFichaId);
+      setDetail({});
       try {
         await axios.delete(
           `https://ironrest.herokuapp.com/chrbuilderPrincipal/${props.currFichaId}`          
@@ -72,7 +73,7 @@ const {setEditOk}=props
         <div className={style.cardColumn}>
 
         <div>
-            <h2>Descrição</h2>
+            <h3>Descrição</h3>
             <p>Nome: {detail.desNome} </p>
             <p>Tipo: {detail.desTipo} </p>
             <p>Jogador: {detail.desJogador} </p>
@@ -97,7 +98,10 @@ const {setEditOk}=props
         <p>Extra 2: {detail.infInventario8} </p>
         <p>Extra 3: {detail.infInventario9} </p>
         </div>       
-
+        <div className={style.buttons}>
+          <button onClick={() => {setEditOk(true)}}>Editar</button>
+          <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
+        </div>
         </div>
         
         <div className={style.cardColumn}> 
@@ -136,7 +140,7 @@ const {setEditOk}=props
         </div>
         
         <div>
-        <h4>Sinas</h4>
+        <h3>Sinas</h3>
         <p>1: {detail.desSina1} </p>
         <p>2: {detail.desSina2} </p>
         <p>3: {detail.desSina3} </p>
@@ -163,10 +167,9 @@ const {setEditOk}=props
               </div>
             ))}
           </div>
+
         </div>          
     </div>
-    <button onClick={() => {setEditOk(true)}}>Editar</button>
-    <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
   </div>
   )
 }

@@ -1,14 +1,15 @@
 import {NavBar} from "../../components/Navbar"
 import {Footer} from "../../components/Footer"
-
+import style from "./styles.module.css"
 
 export function Home () {
 
-    return (<>
+    return (<div className={style.homePage}>
 
     <NavBar />
-    <h1>Home</h1>
+
+    <section className={style.background}></section>
     <Footer />
     
-    </>) 
+    </div>) 
  }
