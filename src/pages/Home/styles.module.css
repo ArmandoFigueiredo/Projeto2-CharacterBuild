@@ -2,8 +2,9 @@
     min-height: 100vh;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
-    background-color: whitesmoke;
+    flex-direction: column;    
+    /* background-color: whitesmoke; */
+    background-image: url("https://i.pinimg.com/564x/a0/65/2e/a0652e997f280e792514b4b087f60ccb.jpg");
 }
 
 .homePage .background {
