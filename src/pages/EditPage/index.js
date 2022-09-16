@@ -8,19 +8,17 @@ export function EditPage (props) {
     
     const {id}=useParams();
     const [toggle, setToggle] = useState(false)
-        
-    const [pericid, setPericid] = useState ("")
-    console.log(pericid)
+    const [pericId, setPericid] = useState ("")
+    
 
     return (<>
     <h1>Editando</h1>
     
-    <div>
+    <div className="editAtributos">
         <AttributesEdit id={id} setPericid={setPericid} setToggle={setToggle}/>
-        
     </div>
-    <div>
-        {toggle ? <PericiasEdit pericId={pericid} />:<></>}
+    <div className="editPericias">
+        {toggle === true ? <PericiasEdit pericId={pericId} />:null}
     </div>
     </>)
 }

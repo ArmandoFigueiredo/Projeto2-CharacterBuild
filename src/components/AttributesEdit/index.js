@@ -59,9 +59,7 @@ export function AttributesEdit ({id, setPericid, setToggle}){
             
             const response = await axios.get(`https://ironrest.herokuapp.com/chrbuilderPrincipal/${id}`);
             setDadosEditaveis(response.data);
-            console.log(response.data.periciaId);
             
-
             } catch (err) {
                 console.log (err)
             }
