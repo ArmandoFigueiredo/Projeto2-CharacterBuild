@@ -98,9 +98,12 @@ const {setEditOk}=props
         <p>Extra 1: {detail.infInventario7} </p>
         <p>Extra 2: {detail.infInventario8} </p>
         <p>Extra 3: {detail.infInventario9} </p>
-        </div>       
+        </div>
+
         <div className={style.buttons}>
-          <button onClick={() => {setEditOk(true)}}>Editar</button>
+        <div className={style.editBtn}>
+          <Link to={`/editpage/${detail._id}`}><button>Editar</button></Link>
+        </div>
           <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
         </div>
         </div>
@@ -170,11 +173,15 @@ const {setEditOk}=props
           </div>
 
         </div>          
+<<<<<<< HEAD
+    </div>  
+=======
     </div>
 
     <Link to={`/editpage/${detail._id}`}><button>Editar</button></Link>
     
     <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
+>>>>>>> c11d5cbf4a94cb670d6ac99f0208e19451fd1de6
 
   </div>
   )

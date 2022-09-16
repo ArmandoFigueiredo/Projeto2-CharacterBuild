@@ -5,6 +5,7 @@
 }
 
 .cardColumn {
+    background-image: url("https://img.freepik.com/vetores-gratis/textura-turva-de-tinta-preta-com-pinceladas_125540-1360.jpg?w=1060&t=st=1663294549~exp=1663295149~hmac=dfdc165e99d809990363a79c5c91c88fa6b405e4a3be76056dc652b66769a95b");
     display: flex;
     flex-direction: column;
     margin: 10px;
@@ -14,8 +15,10 @@
     gap: 15px;
     padding-bottom: 20px;
     padding-top: 10px;
-    font-size: 12px;      
+    font-size: 12px;
+    font-weight: bold;      
     width: 15vw;
+    color: white;
 }
 
   

@@ -4,8 +4,8 @@ export function NavBar(){
     return(<nav className={style.navBar}>
         <h1>Character Building</h1>
         <div>
-            <Link to="/consultpage">Consultar</Link>
-            <Link to="/buildpage">Criar ficha</Link>
+            <Link to="/consultpage">Consult Character</Link>
+            <Link to="/buildpage">Build Character</Link>
         </div>
         </nav>)
 }
