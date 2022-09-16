@@ -1,4 +1,14 @@
+/* @font-face {
+    font-family: 'diamond_gothicnormal';
+    src: url('diagoth-webfont.woff2') format('woff2'),
+         url('diagoth-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+} */
+
 footer.footer {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
     background-color: gray;
     color: white;

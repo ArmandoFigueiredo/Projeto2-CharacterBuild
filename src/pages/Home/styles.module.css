@@ -3,10 +3,60 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    background-color: whitesmoke;
 }
 
 .homePage .background {
-    background-image: url("https://i.pinimg.com/564x/2d/6d/71/2d6d710007f4afbca52f8b95e7036263.jpg");    
+    background-image: url("https://i.pinimg.com/564x/31/73/e4/3173e4292dbb1859617720e8a1252ee0.jpg");    
     flex: 1;
-    background-size:contain;
+    background-size:cover;
+    width: 50vw;
+    background-position: center;
+}
+
+.homeMain {
+    display: flex;
+    flex: 1;
+}
+
+.navImage1 {
+    background-image: url("https://i.pinimg.com/564x/2d/6d/71/2d6d710007f4afbca52f8b95e7036263.jpg");
+    width: 15vw;
+    height: 40vh;
+    background-size: cover;
+}
+
+.navImage2 {
+    background-image: url("https://i.pinimg.com/564x/1d/ac/7e/1dac7e700f830025b9cb9651ee559dd0.jpg");
+    width: 15vw;
+    height: 40vh;
+    background-size: cover;
+}
+
+.navCards {
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 15vh auto;
+    align-content: center;
+}
+
+.navCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background-color: grey;
+}
+
+.navCard a {
+    color: white;
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.navCard a:hover {
+    opacity: 0.7;
+    color: black;
 }

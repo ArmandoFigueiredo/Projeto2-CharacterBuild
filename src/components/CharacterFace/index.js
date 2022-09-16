@@ -28,7 +28,7 @@ export function CharacterFace(props) {
   }, []);
 
   return (<div className={style.character}>
-      <h1>Character</h1> 
+    
       <div className={style.consulta}>
         {face.map((currFace)=>{
           return (

@@ -1,7 +1,7 @@
 
 
 .container {
-    background-image: url("https://img.freepik.com/vetores-gratis/pergaminho-resistido-cinzento_53876-86278.jpg?w=900&t=st=1663294284~exp=1663294884~hmac=f04f046e28ae4e2588b4e7e66a068b550ae392f65bbd388c7b3f247e6121290e");
+    background-image: url("https://i.pinimg.com/564x/a0/65/2e/a0652e997f280e792514b4b087f60ccb.jpg");
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -28,7 +28,7 @@
 }
 
 .detail p {
-    padding: 0;
+    padding: 0 10px;
     margin: 0;
     font-size: 10px;
 }
@@ -62,6 +62,14 @@ div.pericia {
   width: 50%;
 }
 
+.editBtn button {
+  width: 100%;
+}
+
+.delBtn {
+  width: 50%;
+}
+
 .buttons button {  
   padding: auto;
 }
@@ -73,4 +81,8 @@ div.pericia {
 
 .pericia label {
   font-size: 10px;
+}
+
+.pericia .box {
+  padding: 0 10px;
 }
