@@ -173,7 +173,15 @@ const {setEditOk}=props
           </div>
 
         </div>          
+<<<<<<< HEAD
     </div>  
+=======
+    </div>
+
+    <Link to={`/editpage/${detail._id}`}><button>Editar</button></Link>
+    
+    <button onClick={() => {handleToast(props.currFichaId)}}>Delete</button>
+>>>>>>> c11d5cbf4a94cb670d6ac99f0208e19451fd1de6
 
   </div>
   )
