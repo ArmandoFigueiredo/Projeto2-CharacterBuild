@@ -1,0 +1,180 @@
+
+.form1 {
+    border: 1px yellow solid;
+    background-image: url("../../images/crumplet.jpg") ;
+    padding: 50px;
+}
+
+.fichaBuild {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    width:fit-content;
+}
+
+.fichaBuild h1 {
+    margin:30px;
+}
+
+.fichaBuild label {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5em;
+    color: rgb(8, 8, 8);
+    text-align:center;
+    margin: 10px;
+}
+
+.fichaBuild input{
+    width:200px;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.fichaAtributos {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    width:fit-content;
+}
+
+.fichaAtributos h2 {
+    margin:30px 20px;
+    align-self: center;
+}
+
+.fichaAtributos label {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2em;
+    font-weight: 1000;
+    color: rgb(8, 8, 8);
+    text-align:center;
+    margin-top: 15px;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.fichaAtributos input{
+    width:75px;
+    font-size: 1.5em;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.fichaTrunfos {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    width:fit-content;
+}
+
+.fichaTrunfos input{
+    width:300px;
+    font-size: 1.5em;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.fichaTrunfos h2 {
+    margin-top:20px;
+    margin-right: 10px;
+    align-self: center;
+}
+
+.fichaTrunfos label {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(8, 8, 8);
+    text-align:center;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+
+.fichaSinas {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    width:fit-content;
+}
+
+.fichaSinas input{
+    width:300px;
+    font-size: 1.5em;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.fichaSinas h2 {
+    margin-top:20px;
+    margin-right: 10px;
+    align-self: center;
+}
+
+.fichaSinas label {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(8, 8, 8);
+    text-align:center;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+
+.fichaInventorio {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    width:fit-content;
+}
+
+.fichaInventorio input{
+    width:300px;
+    font-size: 1.5em;
+    height: 30px;
+    margin-top: 20px;
+}
+
+.fichaInventorio h2 {
+    margin-top:20px;
+    margin-right: 10px;
+    align-self: center;
+}
+
+.fichaInventorio label {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: rgb(8, 8, 8);
+    text-align:center;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding-top: 20px;
+}
+
+.fichaSecundarios {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    align-items: center;
+    width:fit-content;
+}
+
+.fichaSecundarios label {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    justify-items: center;
+    font-size: 2em;
+    font-weight: 600;
+    color: rgb(8, 8, 8);
+    text-align:center;
+    margin: 20px;
+    margin-left: 80px;
+}
